@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day ❤️</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Mali:wght@400;700&display=swap');
+        
+        body {
+            margin: 0;
+            background: #ffeef2;
+            font-family: 'Mali', cursive;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
+            text-align: center;
+            max-width: 350px;
+            width: 90%;
+            z-index: 2;
+            border: 2px solid #ffb6c1;
+        }
+
+        .photo-frame {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .main-img {
+            width: 100%;
+            border-radius: 15px;
+            display: block;
+        }
+
+        h1 { color: #ff4d6d; font-size: 1.5rem; margin: 15px 0 10px; }
+        p { color: #666; line-height: 1.5; font-size: 1rem; }
+
+        .heart-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) scale(0); opacity: 1; }
+            100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+        }
+
+        .floating-heart {
+            position: absolute;
+            color: #ff85a1;
+            animation: float 4s linear infinite;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="heart-bg" id="heartContainer"></div>
+
+    <div class="card">
+        <div class="photo-frame">
+            <img src="https://i.postimg.cc/1R2VywG4/1771043640977.jpg" alt="Our Love" class="main-img">
+        </div>
+        <h1>Happy Valentine's Day! ✨</h1>
+        <p>ขอบคุณที่เข้ามาเป็นเรื่องราวดีๆ ในชีวิตนะ<br>
+        รอยยิ้มของเธอคือความสุขของเค้าที่สุดเลย<br>
+        <b>รักเธอนะคะ ❤️</b></p>
+    </div>
+
+    <script>
+        function createHeart() {
+            const container = document.getElementById('heartContainer');
+            const heart = document.createElement('div');
+            heart.classList.add('floating-heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
+            heart.style.fontSize = (Math.random() * 15 + 15) + 'px';
+            container.appendChild(heart);
+            setTimeout(() => heart.remove(), 4000);
+        }
+        setInterval(createHeart, 300);
+    </script>
+</body>
+</html>
